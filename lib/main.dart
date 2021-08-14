@@ -50,7 +50,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 150;
+  double _counter = 150;
 
 
   void _incrementCounter() {
@@ -79,7 +79,8 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
    // String url="http://via.placeholder.com/350x150";
-    String url="https://picsum.photos/250?image=9";
+    //String url="https://picsum.photos/250?image=9";
+    String url="https://images.unsplash.com/photo-1533450718592-29d45635f0a9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8anBnfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60";
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -126,14 +127,17 @@ class _MyHomePageState extends State<MyHomePage> {
             ),*/
             Image(image: CachedNetworkImageProvider(url)),
             CachedNetworkImage(
-              imageUrl: "http://via.placeholder.com/200x150",
-              imageBuilder: (context, imageProvider) => Container(
+             // imageUrl: "http://via.placeholder.com/200x150",
+              imageUrl: url,
+            imageBuilder: (context, imageProvider) => Container(
+                width:_counter,
+                height:200,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                       image: imageProvider,
                       fit: BoxFit.none,
                       colorFilter:
-                      ColorFilter.mode(Colors.black, BlendMode.colorBurn)),
+                      ColorFilter.mode(Colors.cyan, BlendMode.colorBurn)),
                 ),
               ),
               placeholder: (context, url) => CircularProgressIndicator(),
