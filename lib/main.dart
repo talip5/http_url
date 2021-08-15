@@ -80,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
    // String url="http://via.placeholder.com/350x150";
     //String url="https://picsum.photos/250?image=9";
-    String url="https://images.unsplash.com/photo-1533450718592-29d45635f0a9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8anBnfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60";
+    String url="https://images.unsplash.com/photo-x1533450718592-29d45635f0a9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8anBnfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60";
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -125,7 +125,7 @@ class _MyHomePageState extends State<MyHomePage> {
               placeholder: (context, url) => CircularProgressIndicator(),
               errorWidget: (context, url, error) => Icon(Icons.error),
             ),*/
-            Image(image: CachedNetworkImageProvider(url)),
+            //Image(image: CachedNetworkImageProvider(url)),
             CachedNetworkImage(
              // imageUrl: "http://via.placeholder.com/200x150",
               imageUrl: url,
@@ -136,12 +136,17 @@ class _MyHomePageState extends State<MyHomePage> {
                   image: DecorationImage(
                       image: imageProvider,
                       fit: BoxFit.none,
-                      colorFilter:
-                      ColorFilter.mode(Colors.cyan, BlendMode.colorBurn)),
+                      //colorFilter:
+                     // ColorFilter.mode(Colors.cyan, BlendMode.colorBurn),
+                    ),
                 ),
               ),
               placeholder: (context, url) => CircularProgressIndicator(),
-              errorWidget: (context, url, error) => Icon(Icons.error),
+              errorWidget: (context, url, error) => Container(
+                  width: 120,
+                  height: 120,
+                  color: Colors.blue,
+                  child: Icon(Icons.error)),
             ),
             Text(
               '$_counter',
